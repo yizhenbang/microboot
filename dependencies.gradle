@@ -4,7 +4,8 @@ ext.versions = [    // 定义所有要使用的版本号
                     junitPlatformLauncher       : '1.7.1',
                     lombok                      : '1.18.18',
                     fastjson                    : '1.2.78',
-                    jackson                     : '2.12.4'
+                    jackson                     : '2.12.4',
+                    easypoi                     : '4.3.0'
 ]
 ext.libraries = [
         // SpringBoot 核心依赖库
@@ -23,4 +24,5 @@ ext.libraries = [
         'jackson-dataformat-xml'   : "com.fasterxml.jackson.dataformat:jackson-dataformat-xml:${versions.jackson}",
         'jackson-databind'         : "com.fasterxml.jackson.core:jackson-databind:${versions.jackson}",
         'jackson-annotations'      : "com.fasterxml.jackson.core:jackson-annotations:${versions.jackson}",
+        'easypoi-spring-boot-starter'   :"cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}"
 ]
