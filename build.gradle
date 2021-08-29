@@ -103,10 +103,6 @@ subprojects {   // 子模块
 project('microboot-web') { // 子模块
     dependencies { // 配置子模块依赖
         compile(project(':microboot-common')) // 引入其他子模块
-        compile(libraries.'fastjson') // 引入SpringBoot依赖
-        compile(libraries.'jackson-dataformat-xml') // 引入Jackson组件依赖
-        compile(libraries.'jackson-databind') // 引入Jackson组件依赖
-        compile(libraries.'jackson-annotations') // 引入Jackson组件依赖
     }
 }
 project('microboot-common') { // 子模块

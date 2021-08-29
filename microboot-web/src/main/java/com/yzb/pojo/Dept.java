@@ -1,7 +1,6 @@
 package com.yzb.pojo;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 /**
  * ClassName: Dept
@@ -13,7 +12,6 @@ import lombok.experimental.Accessors;
  * @since JDK 1.8
  */
 @Data
-@Accessors(fluent = true)
 public class Dept {
     private int id;
     private String deptno;

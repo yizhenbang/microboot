@@ -1,7 +1,6 @@
 package com.yzb.pojo;
 
 import lombok.Data;
-import lombok.experimental.Accessors;
 
 /**
  * ClassName: Emp
@@ -13,7 +12,6 @@ import lombok.experimental.Accessors;
  * @since JDK 1.8
  */
 
-// @Accessors(chain = true)
 @Data
 public class Emp {
     private int id;
