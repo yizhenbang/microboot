@@ -1,6 +1,8 @@
 package com.yzb.pojo;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.stereotype.Component;
 
 /**
  * ClassName: Dept
@@ -12,6 +14,8 @@ import lombok.Data;
  * @since JDK 1.8
  */
 @Data
+@ConfigurationProperties("yzb")
+@Component
 public class Dept {
     private int id;
     private String deptno;
