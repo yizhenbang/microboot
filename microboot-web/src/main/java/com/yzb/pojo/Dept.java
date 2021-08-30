@@ -4,6 +4,8 @@ import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
+
 /**
  * ClassName: Dept
  * Description:
@@ -20,4 +22,6 @@ public class Dept {
     private int id;
     private String deptno;
     private String deptname;
+    private Company company;
+    private List<Emp> emps;
 }

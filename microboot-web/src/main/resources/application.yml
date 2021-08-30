@@ -2,3 +2,18 @@ yzb:
   id: 1
   deptno: dept001
   deptname: 贺知书
+  company:
+    cid: 1
+    cname: 振邦集团
+  emps[0]:
+    id: 1
+    empno: emp001
+    empname: 员工1
+  emps[1]:
+    id: 2
+    empno: emp001
+    empname: 员工1
+  emps[2]:
+    id: 3
+    empno: emp001
+    empname: 员工1

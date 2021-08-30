@@ -41,7 +41,7 @@ public class ExcelController {
             emp.setId(i);
             emp.setEmpno(empnos[i]);
             emp.setEmpname(empname[i]);
-            emp.setTesttime(new Date());
+            // emp.setTesttime(new Date());
             objs.add(emp);
             System.out.println(emp);
         }

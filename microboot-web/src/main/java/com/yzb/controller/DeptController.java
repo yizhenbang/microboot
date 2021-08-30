@@ -24,4 +24,5 @@ public class DeptController {
     public Object show(){
         return this.dept;
     }
+
 }
