@@ -5,6 +5,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
+import java.util.Set;
 
 /**
  * ClassName: Dept
@@ -23,5 +24,5 @@ public class Dept {
     private String deptno;
     private String deptname;
     private Company company;
-    private List<Emp> emps;
+    private Set<Emp> emps;
 }
