@@ -1,20 +1,5 @@
-yzb:
-  id: 1
-  deptno: dept001
-  deptname: 贺知书
-  company:
-    cid: 1
-    cname: 振邦集团
-  emps:
-    - emp:
-      id: 1
-      empno: emp001
-      empname: 员工1
-    - emp:
-      id: 2
-      empno: emp001
-      empname: 员工1
-    - emp:
-      id: 3
-      empno: emp001
-      empname: 员工1
+server:
+  servlet:
+    context-parameters:
+      name: 小易先生
+  port: 80
