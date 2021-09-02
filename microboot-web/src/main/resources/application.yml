@@ -3,3 +3,6 @@ server:
     context-parameters:
       name: 小易先生
   port: 80
+spring:
+  messages:
+    basename: i18n.Message
