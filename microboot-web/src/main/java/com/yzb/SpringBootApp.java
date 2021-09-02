@@ -19,7 +19,6 @@ import javax.servlet.ServletException;
  * @since JDK 1.8
  */
 @SpringBootApplication
-@ServletComponentScan
 public class SpringBootApp extends SpringBootServletInitializer {
     public static void main(String[] args) {
         SpringApplication springApplication = new SpringApplication(SpringBootApp.class);

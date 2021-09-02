@@ -1,6 +1,5 @@
 package com.yzb.pojo;
 
-import cn.afterturn.easypoi.excel.annotation.Excel;
 import lombok.Data;
 
 import java.util.Date;
