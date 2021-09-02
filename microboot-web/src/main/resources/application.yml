@@ -4,5 +4,10 @@ server:
       name: 小易先生
   port: 80
 spring:
-  messages:
-    basename: i18n.Message
+  servlet:
+    multipart:
+      enabled: true # 启动文件上传功能（默认为true）
+      max-file-size: 10MB # 上传文件最大为10MB
+      file-size-threshold: 512KB #每当文件超过512KB进行文件磁盘读写操作
+      max-request-size: 20MB #单次请求最大为20MB
+      location: / #将临时文件存在根目录

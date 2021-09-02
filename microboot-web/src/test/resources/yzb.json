@@ -1,0 +1,12 @@
+{
+  "OriginalFilename": "Fa6-001.jpg",
+  "FileName": "file",
+  "getContentType": "image/jpeg",
+  "Student": {
+    "id": 1,
+    "stuno": "001",
+    "name": null,
+    "time": "2021-05-11T16:00:00.000+00:00",
+    "emp": null
+  }
+}
