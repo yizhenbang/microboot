@@ -21,8 +21,12 @@ public class DeptController {
     private Dept dept;
 
     @GetMapping("/dept")
-    public Object show(){
+    public Object show() {
         return this.dept;
     }
 
+    @GetMapping("/show1")
+    public Object show1(int x,int y) {
+        return x/y;
+    }
 }

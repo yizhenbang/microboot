@@ -36,6 +36,7 @@ public class SendMailTest {
         simpleMailMessage.setText("Hello Mail ！ Please see www.baidu.com");//设置正文
 
         javaMailSender.send(simpleMailMessage);//发送
+
     }
 
 }
