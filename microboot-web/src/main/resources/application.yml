@@ -1,13 +1,11 @@
 server:
-  servlet:
-    context-parameters:
-      name: 小易先生
   port: 80
 spring:
-  servlet:
-    multipart:
-      enabled: true # 启动文件上传功能（默认为true）
-      max-file-size: 10MB # 上传文件最大为10MB
-      file-size-threshold: 512KB #每当文件超过512KB进行文件磁盘读写操作
-      max-request-size: 20MB #单次请求最大为20MB
-      location: / #将临时文件存在根目录
+  mail:
+    host: smtp.qq.com # 一定要使用合法的SMTP
+    username: 1628755314@qq.com # 用户名
+    password: sslamwxkmkqydaje # QQ邮箱生成的授权码
+    properties:
+      mail.smtp.auth: true #启动SMTP
+      mail.smtp.starttls.enable: true #启动tls加密
+      mail.smtp.starttls.require: true #必须启动tls加密
