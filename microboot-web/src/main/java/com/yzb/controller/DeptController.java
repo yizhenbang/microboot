@@ -1,11 +1,14 @@
 package com.yzb.controller;
 
+import com.yzb.pojo.Company;
 import com.yzb.pojo.Dept;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,13 +23,12 @@ import java.util.Map;
 @RestController
 public class DeptController {
 
-    @Autowired
-    private Dept dept;
+    @GetMapping("/dept2")
+    public Object show(@ModelAttribute("company") Company company, @ModelAttribute("dept") Dept dept) {
+        Map<String, Object> map = new HashMap<>();
+        map.put("Company", company);
+        map.put("Dept", dept);
 
-    @GetMapping("/dept")
-    public Object show(Model model) {
-        Map<String, Object> map = (Map<String, Object>) model.asMap().get("bindModel");
-        map.put("【DeptController】", "Aaa");
         return map;
     }
 

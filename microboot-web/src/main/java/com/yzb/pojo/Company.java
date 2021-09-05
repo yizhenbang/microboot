@@ -14,5 +14,5 @@ import lombok.Data;
 @Data
 public class Company {
     private long cid;
-    private String cname;
+    private String name;
 }

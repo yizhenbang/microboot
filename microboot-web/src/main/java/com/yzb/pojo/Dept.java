@@ -21,8 +21,5 @@ import java.util.Set;
 @Component
 public class Dept {
     private int id;
-    private String deptno;
-    private String deptname;
-    private Company company;
-    private Set<Emp> emps;
+    private String name;
 }
