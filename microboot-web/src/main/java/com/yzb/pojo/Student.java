@@ -1,7 +1,11 @@
 package com.yzb.pojo;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
 
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 /**
@@ -15,9 +19,10 @@ import java.util.Date;
  */
 @Data
 public class Student {
+    @Digits(integer = 2, fraction = 0)
     private int id;
+    @Length(max = 3, min = 1)
     private String stuno;
-    private String name;
+    @NotNull
     private Date time;//入学时间
-    private Emp emp;
 }

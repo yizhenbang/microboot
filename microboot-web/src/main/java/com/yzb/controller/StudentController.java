@@ -2,8 +2,13 @@ package com.yzb.controller;
 
 import com.yzb.asb.action.AbstractBaseAction;
 import com.yzb.pojo.Student;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
 
 /**
  * ClassName: MessageController
@@ -16,12 +21,17 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
 @RestController
-public class StudentController extends AbstractBaseAction  {
+@Validated
+public class StudentController extends AbstractBaseAction {
     @RequestMapping("/student")
-    public Object show1(Student msg){
-        msg.setStuno("【ECHO】"+msg.getStuno());
-        msg.setName("【ECHO】"+msg.getName());
+    public Object show1(@Valid Student msg) {
+        return msg;
+    }
+
+    @RequestMapping("/student2")
+    public Object show2(@NotBlank @Length(max = 5,min = 1) String msg) {
         return msg;
     }
 }
-// localhost:8080/Student?stuno=123&name=小易&entranceDate=1998-12-01
+// localhost/student
+// localhost/student2
