@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'com.yzb'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+sourceSets {    // 源代码目录配置
+    main { // main及相关子目录配置
+        java { srcDirs = ['src/main/java'] }
+        resources { srcDirs = ['src/main/resources', "src/main/view"] }
+    }
+    test { // test及相关子目录配置
+        java { srcDirs = ['src/test/java'] }
+        resources { srcDirs = ['src/test/resources'] }
+    }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}

@@ -112,3 +112,9 @@ project('microboot-common') { // 子模块
         compile ('org.springframework.boot:spring-boot-starter-web')
     } // 配置子模块依赖
 }
+project('microboot-thymeleaf'){
+    dependencies {
+        compile(project(':microboot-common'))//引入公共模块
+        compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    }
+}

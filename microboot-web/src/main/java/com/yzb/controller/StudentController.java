@@ -29,9 +29,15 @@ public class StudentController extends AbstractBaseAction {
     }
 
     @RequestMapping("/student2")
-    public Object show2(@NotBlank @Length(max = 5,min = 1) String msg) {
+    public Object show2(@NotBlank @Length(max = 5, min = 1) String msg) {
         return msg;
+    }
+
+    @RequestMapping("/student3")
+    public Object show3(@Valid Student student) {
+        return student;
     }
 }
 // localhost/student
 // localhost/student2
+// localhost/student3?id=1&stuno=hi&time=2021-05-12&testregex=abc1

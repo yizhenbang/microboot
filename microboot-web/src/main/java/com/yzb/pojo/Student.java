@@ -1,10 +1,10 @@
 package com.yzb.pojo;
 
+import com.yzb.validation.annotation.RegexValidator;
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
 
 import javax.validation.constraints.Digits;
-import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
 
@@ -25,4 +25,6 @@ public class Student {
     private String stuno;
     @NotNull
     private Date time;//入学时间
+    @RegexValidator(pattern = "[a-zA-Z]{1,5}\\d+")
+    private String testregex;
 }
