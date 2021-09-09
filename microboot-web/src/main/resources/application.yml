@@ -1,11 +1,12 @@
 server:
   port: 80
-spring:
-  mail:
-    host: smtp.qq.com # 一定要使用合法的SMTP
-    username: 1628755314@qq.com # 用户名
-    password: sslamwxkmkqydaje # QQ邮箱生成的授权码
-    properties:
-      mail.smtp.auth: true #启动SMTP
-      mail.smtp.starttls.enable: true #启动tls加密
-      mail.smtp.starttls.require: true #必须启动tls加密
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*" #开放所有的路径
+      base-path: /actuator # 监控服务父路径
+  endpoint:
+    health:
+      show-details: always # 总是显示信息
+      show-components: always # 总是显示组件信息
