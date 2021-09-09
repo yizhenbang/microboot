@@ -10,3 +10,9 @@ management:
     health:
       show-details: always # 总是显示信息
       show-components: always # 总是显示组件信息
+info:
+  app:
+    name: 易振邦
+    sex: 男
+    age: 17
+    description: 就是为了解释/info的作用
