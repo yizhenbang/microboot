@@ -1,6 +1,8 @@
 server:
   port: 80
 management:
+  server:
+    port: 9090
   endpoints:
     web:
       exposure:
@@ -10,9 +12,14 @@ management:
     health:
       show-details: always # 总是显示信息
       show-components: always # 总是显示组件信息
+
 info:
   app:
     name: 易振邦
     sex: 男
     age: 17
     description: 就是为了解释/info的作用
+logging:
+  level: #为Map类型的数据
+    root: info #配置日志的级别为info
+    com.yzb.controller: warn

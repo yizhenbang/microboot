@@ -6,7 +6,8 @@ ext.versions = [    // 定义所有要使用的版本号
                     fastjson                    : '1.2.78',
                     jackson                     : '2.12.4',
                     easypoi                     : '4.3.0',
-                    hibernateValidator         :'6.2.0.Final'
+                    hibernateValidator          :'6.2.0.Final',
+                    prometheus                  :'1.7.3',// Prometheus监控
 
 ]
 ext.libraries = [
@@ -28,5 +29,7 @@ ext.libraries = [
         'jackson-annotations'       : "com.fasterxml.jackson.core:jackson-annotations:${versions.jackson}",
         'easypoi-spring-boot-starter'   :"cn.afterturn:easypoi-spring-boot-starter:${versions.easypoi}",
         //JSR303校验
-        'hibernateValidator'        :"org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}"
+        'hibernateValidator'        :"org.hibernate.validator:hibernate-validator:${versions.hibernateValidator}",
+        //Prometheus
+        'micrometer-registry-prometheus'    :"io.micrometer:micrometer-registry-prometheus:${versions.prometheus}"
 ]

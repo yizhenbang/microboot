@@ -105,7 +105,7 @@ project('microboot-web') { // 子模块
         compile(project(':microboot-common')) // 引入其他子模块
         compile(libraries.'hibernateValidator') // JSR303数据校验
         compile('org.springframework.boot:spring-boot-starter-actuator')
-
+        compile(libraries.'micrometer-registry-prometheus')// Prometheus可视化监控
     }
 }
 project('microboot-common') { // 子模块
