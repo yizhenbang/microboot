@@ -24,7 +24,7 @@ import java.util.Map;
 public class DeptController {
 
     @GetMapping("/dept2")
-    public Object show(@ModelAttribute("company") Company company, @ModelAttribute("dept") Dept dept) {
+    public Object show(Company company, Dept dept) {
         Map<String, Object> map = new HashMap<>();
         map.put("Company", company);
         map.put("Dept", dept);
