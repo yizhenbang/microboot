@@ -3,6 +3,7 @@ package com.yzb.tash;
 import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
+import net.javacrumbs.shedlock.spring.annotation.SchedulerLock;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
@@ -24,16 +25,14 @@ import java.util.concurrent.TimeUnit;
 @Slf4j
 public class MyScheduleTask {//定时任务类
 
-    @Scheduled(fixedDelay = 2000)//两秒执行一次
+    // lockAtMostFor ：任务执行完成时，任务节点要独占锁的最长时间
+    // lockAtLeastFor：任务执行完成时，任务节点要独占锁的最短时间
     @SneakyThrows
-    public void runJobA() {// 间隔任务
-        log.info("【RATE】执行" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-        TimeUnit.SECONDS.sleep(5);//模拟睡眠5秒
-    }
-
     @Scheduled(cron = "* * * * * ?")
+    @SchedulerLock(name = "MyFirstShedLock",lockAtLeastFor="5000") // 任务执行后，独占锁5秒
     public void runJobB() {
         log.info("【CROM】执行" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        TimeUnit.SECONDS.sleep(5);
     }
 
 }

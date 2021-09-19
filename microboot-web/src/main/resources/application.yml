@@ -23,3 +23,20 @@ logging:
   level: #为Map类型的数据
     root: info #配置日志的级别为info
     com.yzb.controller: warn
+spring:
+  profiles:
+    active: env # 当前的开发环境为env
+  redis:
+    host: microboot-redis # 设置主机
+    password: hello #设置密码
+    connect-timeout: 200 # 设置连接超时数
+    timeout: 200 # 设置超时数
+    database: 0 # 第0个数据库
+    port: 6379 # 端口
+    lettuce: # 使用lettuce连接池
+      pool:
+        max-active: 100 #最大连接个数
+        max-idle: 20 #最大的维护
+        min-idle: 10
+        max-wait: 1000
+        time-between-eviction-runs: 2000 # 每两秒回收一次空闲连接
