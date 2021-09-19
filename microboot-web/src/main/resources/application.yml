@@ -12,9 +12,6 @@ management:
     health:
       show-details: always # 总是显示信息
       show-components: always # 总是显示组件信息
-context:
-  listener:
-    classes: com.yzb.event.listener.YzhenbListener
 logging:
   level: #为Map类型的数据
     root: info #配置日志的级别为info

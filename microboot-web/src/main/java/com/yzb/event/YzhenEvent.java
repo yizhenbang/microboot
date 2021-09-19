@@ -1,6 +1,7 @@
 package com.yzb.event;
 
 import com.yzb.pojo.Student;
+import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationEvent;
 import org.springframework.stereotype.Component;
@@ -18,6 +19,7 @@ import java.time.Clock;
  */
 
 @Slf4j
+@Getter
 public class YzhenEvent extends ApplicationEvent {
 
     private Student student;

@@ -37,7 +37,30 @@ public class EventTest {
         student.setId(1);
         student.setStuno("stu001");
         student.setTime(new Date());
-        applicationEventPublisher.publishEvent(new YzhenEvent(this,student));
+        applicationEventPublisher.publishEvent(new YzhenEvent(this, student));
     }
 
+    @Test
+    public void test2() {
+
+    }
+
+    @Test
+    public void test3() {
+        Student student = new Student();
+        student.setId(1);
+        student.setStuno("stu002");
+        student.setTime(new Date());
+        applicationEventPublisher.publishEvent(new YzhenEvent(this, student));
+    }
+
+
+    @Test
+    public void test4() {
+        Student student = new Student();
+        student.setId(1);
+        student.setStuno("stu001");
+        student.setTime(new Date());
+        applicationEventPublisher.publishEvent(student);
+    }
 }
