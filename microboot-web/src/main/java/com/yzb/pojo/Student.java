@@ -18,10 +18,7 @@ import java.util.Date;
  */
 @Data
 public class Student {
-    @Digits(integer = 2, fraction = 0)
     private int id;
-    @Length(max = 3, min = 1)
     private String stuno;
-    @NotNull
     private Date time;//入学时间
 }
