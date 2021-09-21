@@ -10,7 +10,10 @@ ext.versions = [    // 定义所有要使用的版本号
                     prometheus                  :'1.7.3',// Prometheus监控
                     shedlock                    :'4.27.0',// ShedLock
                     springBootStarterDataRedis  :'2.5.3',// SpringDataRedis,
-                    commonsPool                 :'2.11.1',
+                    commonsPool                 :'2.11.1',//jettuce需要
+                    jaxwsRI                     :'2.3.4',
+                    cxfSpringBootStarterJaxws   :'3.4.3',
+                    cxfRtTransportsHttp         :'3.4.3'
 
 ]
 ext.libraries = [
@@ -39,5 +42,9 @@ ext.libraries = [
         'shedlock-spring'                   :"net.javacrumbs.shedlock:shedlock-spring:${versions.shedlock}",
         'shedlock-provider-redis-spring'    :"net.javacrumbs.shedlock:shedlock-provider-redis-spring:${versions.shedlock}",
         'spring-boot-starter-data-redis'    :"org.springframework.boot:spring-boot-starter-data-redis:${versions.springBootStarterDataRedis}",
-        'commons-pool2'                     :"org.apache.commons:commons-pool2:${versions.commonsPool}"
+        'commons-pool2'                     :"org.apache.commons:commons-pool2:${versions.commonsPool}",
+        //整合WebService
+        'jaxws-ri'                          :"com.sun.xml.ws:jaxws-ri:${versions.jaxwsRI}",
+        'cxf-spring-boot-starter-jaxws'     :"org.apache.cxf:cxf-spring-boot-starter-jaxws:${versions.cxfSpringBootStarterJaxws}",
+        'cxf-rt-transports-http'            :"org.apache.cxf:cxf-rt-transports-http:${versions.cxfRtTransportsHttp}",
 ]

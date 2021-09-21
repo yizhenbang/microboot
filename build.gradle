@@ -1,9 +1,9 @@
-buildscript { 						// 定义脚本使用资源
+buildscript {                        // 定义脚本使用资源
     apply from: 'dependencies.gradle' // 引入所需要的依赖库文件
-    repositories { 						// 脚本资源仓库
+    repositories {                        // 脚本资源仓库
         maven { url 'https://maven.aliyun.com/repository/public' }
     }
-    dependencies { 						// 依赖库
+    dependencies {                        // 依赖库
         classpath libraries.'spring-boot-gradle-plugin'
     }
 }
@@ -41,8 +41,8 @@ subprojects {   // 子模块
     }
     dependencies {  // 公共依赖库管理
         // JUnit5
-        testImplementation('org.springframework.boot:spring-boot-starter-test'){//此时默认会使用Junit4
-            exclude group:'junit',module:'junit'//移除旧的Junit
+        testImplementation('org.springframework.boot:spring-boot-starter-test') {//此时默认会使用Junit4
+            exclude group: 'junit', module: 'junit'//移除旧的Junit
         }
         compile(enforcedPlatform(libraries.'junit-bom'))//将当前的项目强制性的绑定为JUnit5运行
         compile(libraries.'junit-jupiter-api')
@@ -115,12 +115,32 @@ project('microboot-web') { // 子模块
 project('microboot-common') { // 子模块
     dependencies {
         // 引入SpringBoot依赖
-        compile ('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-web')
     } // 配置子模块依赖
 }
-project('microboot-thymeleaf'){
+project('microboot-thymeleaf') {
     dependencies {
         compile(project(':microboot-common'))//引入公共模块
         compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    }
+}
+project('microboot-Service-Common') {
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile('org.springframework.boot:spring-boot-starter-web-services')
+        compile(libraries.'cxf-spring-boot-starter-jaxws')
+        compile(libraries.'cxf-rt-transports-http')
+        compile(libraries.'hibernateValidator')
+        compile(libraries.'jaxws-ri')
+    }
+}
+project('microboot-Service-Server') {
+    dependencies {
+        compile(project(':microboot-Service-Common'))
+    }
+}
+project('microboot-Service-Client') {
+    dependencies {
+        compile(project(':microboot-Service-Common'))
     }
 }

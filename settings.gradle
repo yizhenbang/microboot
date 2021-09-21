@@ -3,4 +3,7 @@ include 'microboot-common'
 include 'microboot-web'
 include 'microboot-common'
 include 'microboot-thymeleaf'
+include 'microboot-Service-Common'
+include 'microboot-Service-Server'
+include 'microboot-Service-Client'
 
