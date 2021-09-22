@@ -1,6 +1,7 @@
 package com.yzb.interceptor;
 
 import lombok.extern.slf4j.Slf4j;
+import org.apache.cxf.binding.soap.SOAPBindingUtil;
 import org.apache.cxf.binding.soap.SoapMessage;
 import org.apache.cxf.binding.soap.saaj.SAAJInInterceptor;
 import org.apache.cxf.common.util.StringUtils;
@@ -71,8 +72,7 @@ public class WebServiceAuthInterceptor extends AbstractPhaseInterceptor<SoapMess
         String userName = usernameNodeList.item(0).getTextContent().trim();//获取到用户名的实际值
         String userPassword = userPasswordNodeList.item(0).getTextContent().trim();//获取密码的实际值
 
-
-        if (userName == USER_NAME && userPassword == USER_PWD) {
+        if (userName.equals(USER_NAME) && userPassword.equals(USER_PWD)) {
             log.info("认证成功！~");
         } else {
             log.error("认证失败！~ 请检查账号或密码是否正确");
