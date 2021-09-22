@@ -3,7 +3,6 @@ server:
 logging:
   level: #为Map类型的数据
     root: info #配置日志的级别为info
-    com.yzb.controller: warn
 spring:
   profiles:
     active: env # 当前的开发环境为env
