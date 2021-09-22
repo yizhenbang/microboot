@@ -1,17 +1,5 @@
 server:
   port: 80
-management:
-  server:
-    port: 9090
-  endpoints:
-    web:
-      exposure:
-        include: "*" #开放所有的路径
-      base-path: /actuator # 监控服务父路径
-  endpoint:
-    health:
-      show-details: always # 总是显示信息
-      show-components: always # 总是显示组件信息
 logging:
   level: #为Map类型的数据
     root: info #配置日志的级别为info

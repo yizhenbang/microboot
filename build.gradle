@@ -100,18 +100,6 @@ subprojects {   // 子模块
     }
     [compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8' // 编码配置
 }
-project('microboot-web') { // 子模块
-    dependencies { // 配置子模块依赖
-        compile(project(':microboot-common')) // 引入其他子模块
-        compile(libraries.'hibernateValidator') // JSR303数据校验
-        compile('org.springframework.boot:spring-boot-starter-actuator')
-        compile(libraries.'micrometer-registry-prometheus')// Prometheus可视化监控
-        compile(libraries.'shedlock-spring')
-        compile(libraries.'shedlock-provider-redis-spring')
-        compile(libraries.'spring-boot-starter-data-redis')
-        compile(libraries.'commons-pool2')
-    }
-}
 project('microboot-common') { // 子模块
     dependencies {
         // 引入SpringBoot依赖
@@ -122,6 +110,14 @@ project('microboot-thymeleaf') {
     dependencies {
         compile(project(':microboot-common'))//引入公共模块
         compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    }
+}
+project('microboot-web') { // 子模块
+    dependencies { // 配置子模块依赖
+        compile(project(':microboot-common')) // 引入其他子模块
+        compile(libraries.'hibernateValidator') // JSR303数据校验
+        compile('org.springframework.boot:spring-boot-starter-actuator')
+        compile('org.springframework.boot:spring-boot-starter-websocket')
     }
 }
 project('microboot-Service-Common') {
