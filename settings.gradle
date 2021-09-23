@@ -6,4 +6,5 @@ include 'microboot-thymeleaf'
 include 'microboot-Service-Common'
 include 'microboot-Service-Server'
 include 'microboot-Service-Client'
+include 'microboot-WebFlux'
 
