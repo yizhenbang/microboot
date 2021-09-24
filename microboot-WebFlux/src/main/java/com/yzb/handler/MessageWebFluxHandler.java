@@ -1,5 +1,6 @@
 package com.yzb.handler;
 
+import com.yzb.vo.Message;
 import org.springframework.stereotype.Component;
 import org.springframework.web.reactive.function.BodyInserters;
 import org.springframework.web.reactive.function.server.ServerRequest;
@@ -17,7 +18,7 @@ import reactor.core.publisher.Mono;
  */
 
 @Component
-public class MessageWebFluxHandler {
+public class MessageWebFluxHandler{
 
     /**
      * @param request :这个就是一个请求
@@ -30,5 +31,12 @@ public class MessageWebFluxHandler {
         return ServerResponse.ok()// 响应状态码
                 .header("Content-type", "text/html;charset=UTF-8") // 设置响应头用标准的格式显示数据
                 .body(BodyInserters.fromValue("你好啊~我是处理类返回的数据！！！"));
+    }
+
+    // 就不关注传统的ServerResponse 和 ServerRequest 直接将响应类型操作
+    public Mono<Message> executeSpringBoot(Message message) {
+        message.setContent("【" + Thread.currentThread().getName() + "】" + message.getContent());
+        message.setTitle("【" + Thread.currentThread().getName() + "】" + message.getTitle());
+        return Mono.create(messageMonoSink -> messageMonoSink.success(message));
     }
 }
