@@ -1,5 +1,6 @@
 package com.yzb.starter.config;
 
+import com.yzb.starter.handler.DefaultImportBeanDefinitionRegistrar;
 import com.yzb.starter.selector.DefaultImportSelector;
 import com.yzb.starter.vo.Person;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
@@ -22,7 +23,8 @@ import java.util.List;
 @Configuration
 // @EnableConfigurationProperties(Person.class)
 // @Import(Person.class)
-@Import(DefaultImportSelector.class)
+// @Import(DefaultImportSelector.class)
+@Import(DefaultImportBeanDefinitionRegistrar.class)
 public class DefaultAutoConfig {
 
     @Bean("pigs")
