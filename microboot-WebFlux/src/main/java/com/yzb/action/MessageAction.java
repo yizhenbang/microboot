@@ -50,4 +50,14 @@ public class MessageAction {
     public Object echo(Message message) {
         return messageWebFluxHandler.executeSpringBoot(message);
     }
+
+    @RequestMapping("/list")
+    public Object list(Message message) {
+        return messageWebFluxHandler.list(message);
+    }
+
+    @RequestMapping("/map")
+    public Object map(Message message) {
+        return messageWebFluxHandler.map(message);
+    }
 }
