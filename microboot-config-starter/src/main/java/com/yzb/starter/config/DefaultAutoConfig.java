@@ -1,9 +1,11 @@
 package com.yzb.starter.config;
 
+import com.yzb.starter.selector.DefaultImportSelector;
 import com.yzb.starter.vo.Person;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Import;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +20,9 @@ import java.util.List;
  * @since JDK 1.8
  */
 @Configuration
-@EnableConfigurationProperties(Person.class)
+// @EnableConfigurationProperties(Person.class)
+// @Import(Person.class)
+@Import(DefaultImportSelector.class)
 public class DefaultAutoConfig {
 
     @Bean("pigs")
