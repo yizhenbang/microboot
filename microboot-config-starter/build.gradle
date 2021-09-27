@@ -1,0 +1,24 @@
+plugins {
+    id 'java'
+}
+
+group 'com.yzb'
+version '1.0.0'
+
+repositories {
+    mavenCentral()
+}
+
+jar { enabled = true }//允许当前的模块打包成*.jar
+javadocTask { enabled = false } //不启用javadoc任务
+javadocJar { enabled = false }//不生成javadoc的*.jar文件
+bootJar { enabled = false }// 不执行SpringBoot的打包命令
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+}
+
+test {
+    useJUnitPlatform()
+}

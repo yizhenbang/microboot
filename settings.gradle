@@ -7,4 +7,5 @@ include 'microboot-Service-Common'
 include 'microboot-Service-Server'
 include 'microboot-Service-Client'
 include 'microboot-WebFlux'
+include 'microboot-config-starter'
 

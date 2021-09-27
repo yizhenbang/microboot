@@ -145,3 +145,8 @@ project('microboot-WebFlux') {
         compile('org.springframework.boot:spring-boot-starter-webflux')
     }
 }
+project('microboot-config-starter') {
+    dependencies {
+        compile('org.springframework.boot:spring-boot-starter-web')
+    }
+}
