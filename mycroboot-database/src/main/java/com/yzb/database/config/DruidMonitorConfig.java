@@ -1,9 +1,12 @@
 package com.yzb.database.config;
 
 import com.alibaba.druid.support.http.StatViewServlet;
+import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.DependsOn;
 
 import javax.servlet.ServletRegistration;
 
@@ -34,6 +37,27 @@ public class DruidMonitorConfig {
 
         return registrationBean;
 
+    }
+
+    @Bean
+    @DependsOn("webStatFilter")
+    public FilterRegistrationBean<WebStatFilter> getWebStatFilterFilterRegistrationBean(WebStatFilter webStatFilter) {
+        FilterRegistrationBean<WebStatFilter> registrationBean = new FilterRegistrationBean<>(webStatFilter);
+
+        registrationBean.addUrlPatterns("/*");//监控所有路径
+        registrationBean.addInitParameter(//监控排除
+                WebStatFilter.PARAM_NAME_EXCLUSIONS,
+                "*.jpg,*.gif,*.pdf,*.css,*.js,/druid/*"
+        );
+
+        return registrationBean;
+    }
+
+    @Bean("webStatFilter")
+    public WebStatFilter webStatFilter() {//获取web状态过滤
+        WebStatFilter webStatFilter = new WebStatFilter();
+        webStatFilter.setSessionStatEnable(true);//对Session状态进行监控
+        return webStatFilter;
     }
 
 }
