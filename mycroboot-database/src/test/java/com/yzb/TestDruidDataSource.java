@@ -5,6 +5,7 @@ import com.yzb.database.StarterDruidApplication;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
@@ -27,11 +28,11 @@ import java.sql.SQLException;
 public class TestDruidDataSource {
 
     @Autowired
+    @Qualifier("yzbDriDruidDataSource")
     private DataSource dataSource;
 
     @Test
     void getConn() throws SQLException {
         System.out.println(dataSource.getConnection());
-        System.out.println(dataSource);
     }
 }

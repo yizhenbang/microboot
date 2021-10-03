@@ -153,8 +153,9 @@ project('microboot-config-starter') {
 }
 project('mycroboot-database') {
     dependencies {
-        compile(project(':microboot-common'))
-        compile(libraries.'druidStarter')
+//        compile(project(':microboot-common'))
+        compile('org.springframework.boot:spring-boot-starter-web')
+        compile(libraries.'druid')
         compile(libraries.'mysql')
         compile(libraries.'SpringJDBC')
     }

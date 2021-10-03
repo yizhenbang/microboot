@@ -1,6 +1,5 @@
-package com.yzb.config;
+package com.yzb.database.config;
 
-import com.yzb.event.YzhenEvent;
 import com.yzb.pojo.Student;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
