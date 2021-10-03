@@ -13,7 +13,11 @@ ext.versions = [    // 定义所有要使用的版本号
                     commonsPool                 :'2.11.1',//jettuce需要
                     jaxwsRI                     :'2.3.4',
                     cxfSpringBootStarterJaxws   :'3.4.3',
-                    cxfRtTransportsHttp         :'3.4.3'
+                    cxfRtTransportsHttp         :'3.4.3',
+                    druid                       :'1.2.6',//Druid
+                    springJDBC                  :'5.3.9',//SpringJDBC
+                    mysql                       :'8.0.20'//MySQL
+
 
 ]
 ext.libraries = [
@@ -47,4 +51,10 @@ ext.libraries = [
         'jaxws-ri'                          :"com.sun.xml.ws:jaxws-ri:${versions.jaxwsRI}",
         'cxf-spring-boot-starter-jaxws'     :"org.apache.cxf:cxf-spring-boot-starter-jaxws:${versions.cxfSpringBootStarterJaxws}",
         'cxf-rt-transports-http'            :"org.apache.cxf:cxf-rt-transports-http:${versions.cxfRtTransportsHttp}",
+        //以下是做Druid
+        'druidStarter'                             :"com.alibaba:druid-spring-boot-starter:${versions.druid}",
+        //MySQL
+        'mysql'                             :"mysql:mysql-connector-java:${versions.mysql}",
+        //SpringJDBC
+        'SpringJDBC'                        :"org.springframework:spring-jdbc:${versions.springJDBC}"
 ]
