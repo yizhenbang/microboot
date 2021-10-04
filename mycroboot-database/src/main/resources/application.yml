@@ -19,3 +19,7 @@ spring:
         test-while-idle: true # 测试连接是否可用
         test-on-borrow: false #在获得连接之前是否要进行测试
         test-on-return: false #在返回之前是否要进行测试
+        stat:
+          log-slow-sql: true #记录慢SQL
+          slow-sql-Millis: 2000 #超过两秒钟为慢SQL
+          merge-sql: true #统计相同到SQL命令

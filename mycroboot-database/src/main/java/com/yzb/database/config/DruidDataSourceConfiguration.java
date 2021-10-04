@@ -1,11 +1,16 @@
 package com.yzb.database.config;
 
+import com.alibaba.druid.filter.Filter;
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import javax.sql.DataSource;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * ClassName: DruidDataSourceConfiguration
@@ -48,7 +53,8 @@ public class DruidDataSourceConfiguration {
             @Value("${spring.mybatisReview.datasource.druid.test-on-borrow}")
                     boolean testOnBorrow, // 测试后返回连接
             @Value("${spring.mybatisReview.datasource.druid.test-on-return}")
-                    boolean testOnReturn // 测试后归还
+                    boolean testOnReturn, // 测试后归还
+            @Autowired StatFilter statFilter//注入SQL监控
     ) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
@@ -65,6 +71,11 @@ public class DruidDataSourceConfiguration {
         dataSource.setTestWhileIdle(testWhileIdle); // 测试连接是否可用
         dataSource.setTestOnBorrow(testOnBorrow); // 获取时检测
         dataSource.setTestOnReturn(testOnReturn); // 归还时检测
+
+        List<Filter> filters = new ArrayList<>();//设置所有可能存在的监控项
+        filters.add(statFilter);
+        dataSource.setProxyFilters(filters);
+
         return dataSource;
     }
 

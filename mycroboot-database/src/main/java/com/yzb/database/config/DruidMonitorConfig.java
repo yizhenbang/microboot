@@ -1,7 +1,9 @@
 package com.yzb.database.config;
 
+import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
@@ -58,6 +60,24 @@ public class DruidMonitorConfig {
         WebStatFilter webStatFilter = new WebStatFilter();
         webStatFilter.setSessionStatEnable(true);//对Session状态进行监控
         return webStatFilter;
+    }
+
+    @Bean("sqlFilter")
+    public StatFilter getSqlStatFilter(
+            @Value("${spring.mybatisReview.datasource.druid.stat.merge-sql}")
+                    boolean MergeSql,
+            @Value("${spring.mybatisReview.datasource.druid.stat.log-slow-sql}")
+                    boolean LogSlowSql,
+            @Value("${spring.mybatisReview.datasource.druid.stat.slow-sql-Millis}")
+                    long slowSqlMillis
+    ) {
+        StatFilter statFilter = new StatFilter();
+
+        statFilter.setMergeSql(MergeSql);//合并SQL
+        statFilter.setLogSlowSql(LogSlowSql);//是否记录慢SQL
+        statFilter.setSlowSqlMillis(slowSqlMillis);//慢SQL的时间标准
+
+        return statFilter;
     }
 
 }
