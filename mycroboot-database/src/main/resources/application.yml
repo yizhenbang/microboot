@@ -21,5 +21,5 @@ spring:
         test-on-return: false #在返回之前是否要进行测试
         stat:
           log-slow-sql: true #记录慢SQL
-          slow-sql-Millis: 2000 #超过两秒钟为慢SQL
+          slow-sql-Millis: 1 #超过一毫秒为慢SQL
           merge-sql: true #统计相同到SQL命令
