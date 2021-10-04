@@ -158,5 +158,6 @@ project('mycroboot-database') {
         compile(libraries.'druid')
         compile(libraries.'mysql')
         compile(libraries.'SpringJDBC')
+        compile('org.springframework.boot:spring-boot-starter-aop')
     }
 }

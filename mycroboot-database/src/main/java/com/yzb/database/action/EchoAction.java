@@ -1,5 +1,6 @@
 package com.yzb.database.action;
 
+import com.yzb.database.service.IMessage;
 import com.yzb.database.vo.StudentVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -26,9 +27,12 @@ public class EchoAction {
     @Autowired
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    private IMessage iMessage;
+
     @GetMapping("/echo")
     public String echo(String msg) {
-        return "【ECHO】" + msg;
+        return iMessage.echo(msg);
     }
 
     @GetMapping("/getStudents")
