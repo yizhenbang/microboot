@@ -3,6 +3,7 @@ package com.yzb.database.config;
 import com.alibaba.druid.filter.Filter;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.pool.DruidDataSource;
+import com.alibaba.druid.wall.WallFilter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
@@ -54,7 +55,8 @@ public class DruidDataSourceConfiguration {
                     boolean testOnBorrow, // 测试后返回连接
             @Value("${spring.mybatisReview.datasource.druid.test-on-return}")
                     boolean testOnReturn, // 测试后归还
-            @Autowired StatFilter statFilter//注入SQL监控
+            @Autowired StatFilter statFilter,//注入SQL监控
+            @Autowired WallFilter wallFilter//注入SQL防火墙
     ) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
@@ -74,6 +76,7 @@ public class DruidDataSourceConfiguration {
 
         List<Filter> filters = new ArrayList<>();//设置所有可能存在的监控项
         filters.add(statFilter);
+        filters.add(wallFilter);//将SQL防火墙加入
         dataSource.setProxyFilters(filters);
 
         return dataSource;

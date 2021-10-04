@@ -3,6 +3,8 @@ package com.yzb.database.config;
 import com.alibaba.druid.filter.stat.StatFilter;
 import com.alibaba.druid.support.http.StatViewServlet;
 import com.alibaba.druid.support.http.WebStatFilter;
+import com.alibaba.druid.wall.WallConfig;
+import com.alibaba.druid.wall.WallFilter;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
@@ -80,4 +82,18 @@ public class DruidMonitorConfig {
         return statFilter;
     }
 
+    @Bean("sqlWallConfig")
+    public WallConfig getWallConfig() {//SQL防火墙配置
+        WallConfig wallConfig = new WallConfig();
+        wallConfig.setDeleteAllow(false);//不允许进行delete操作
+        return wallConfig;
+    }
+
+    @Bean("sqlWallFilter")
+    @DependsOn("sqlWallConfig")
+    public WallFilter getWallFilter(WallConfig wallConfig) {
+        WallFilter wallFilter = new WallFilter();
+        wallFilter.setConfig(wallConfig);
+        return wallFilter;
+    }
 }

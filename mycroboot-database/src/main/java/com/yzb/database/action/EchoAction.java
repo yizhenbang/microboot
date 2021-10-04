@@ -49,4 +49,10 @@ public class EchoAction {
 
         return studentVOS;
     }
+
+    @GetMapping("/delete")
+    public Object delete() {
+        String sql = "DELETE FROM STUDENT";
+        return this.jdbcTemplate.update(sql);
+    }
 }

@@ -1,4 +1,4 @@
-package com.yzb.database.config;
+package com.yzb.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

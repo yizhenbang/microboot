@@ -1,4 +1,4 @@
-package com.yzb.database.config;
+package com.yzb.config;
 
 import com.yzb.pojo.Student;
 import lombok.extern.slf4j.Slf4j;

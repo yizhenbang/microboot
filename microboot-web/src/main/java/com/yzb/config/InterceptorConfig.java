@@ -1,4 +1,4 @@
-package com.yzb.database.config;
+package com.yzb.config;
 
 import com.yzb.intercepter.MDCInterceptor;
 import org.springframework.context.annotation.Bean;
