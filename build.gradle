@@ -157,10 +157,11 @@ project('mycroboot-database') {
         compile('org.springframework.boot:spring-boot-starter-web')
         compile(libraries.'druid')
         compile(libraries.'mysql')
-//        compile(libraries.'SpringJDBC')
+        compile(libraries.'SpringJDBC')
         compile('org.springframework.boot:spring-boot-starter-aop')
-//        compile(libraries.'mybatis')
+        compile(libraries.'mybatis')
 //        compile(libraries.'mybatis-spring-boot-starter')
         compile(libraries.'mybatis-plus-boot-starter')
+        compile(libraries.'mybatisPlus')
     }
 }
