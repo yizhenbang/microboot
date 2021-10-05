@@ -24,39 +24,13 @@ import java.util.List;
 @RestController
 public class EchoAction {
 
-    @Autowired
-    private JdbcTemplate jdbcTemplate;
 
     @Autowired
     private IMessage iMessage;
 
-    // @GetMapping("/echo")
-    // public String echo(String msg) {
-    //     return iMessage.echo(msg);
-    // }
-
-    @GetMapping("/getStudents")
-    public Object queryAll() {
-        String sql = "select id,name,sex from student";
-        List<StudentVO> studentVOS = jdbcTemplate.query(sql, new RowMapper<StudentVO>() {
-
-            @Override
-            public StudentVO mapRow(ResultSet rs, int rowNum) throws SQLException {
-                StudentVO studentVO = new StudentVO();
-                studentVO.setId(rs.getInt(1));
-                studentVO.setName(rs.getString(2));
-                studentVO.setSex(rs.getString(3));
-                return studentVO;
-            }
-
-        });
-
-        return studentVOS;
-    }
-
-    @GetMapping("/delete")
-    public Object delete() {
-        String sql = "DELETE FROM STUDENT";
-        return this.jdbcTemplate.update(sql);
+    @GetMapping("/all")
+    public Object all() {
+        List<StudentVO> list = iMessage.list();
+        return list;
     }
 }

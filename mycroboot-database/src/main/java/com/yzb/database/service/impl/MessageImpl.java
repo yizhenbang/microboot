@@ -1,5 +1,6 @@
 package com.yzb.database.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.yzb.database.dao.IMessageMapper;
 import com.yzb.database.service.IMessage;
 import com.yzb.database.vo.StudentVO;
@@ -18,13 +19,13 @@ import java.util.List;
  * @since JDK 1.8
  */
 @Service
-public class MessageImpl implements IMessage {
+public class MessageImpl extends ServiceImpl<IMessageMapper, StudentVO> implements IMessage {
 
     @Autowired
     private IMessageMapper iMessageMapper;
 
     @Override
-    public List<StudentVO> list() {
+    public List<StudentVO> mylist() {
         return iMessageMapper.list();
     }
 }
