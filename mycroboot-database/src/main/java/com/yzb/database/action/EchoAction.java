@@ -30,10 +30,10 @@ public class EchoAction {
     @Autowired
     private IMessage iMessage;
 
-    @GetMapping("/echo")
-    public String echo(String msg) {
-        return iMessage.echo(msg);
-    }
+    // @GetMapping("/echo")
+    // public String echo(String msg) {
+    //     return iMessage.echo(msg);
+    // }
 
     @GetMapping("/getStudents")
     public Object queryAll() {

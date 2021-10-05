@@ -16,9 +16,9 @@ ext.versions = [    // 定义所有要使用的版本号
                     cxfRtTransportsHttp         :'3.4.3',
                     druid                       :'1.2.6',//Druid
                     springJDBC                  :'5.3.9',//SpringJDBC
-                    mysql                       :'8.0.20'//MySQL
-
-
+                    mysql                       :'8.0.20',//MySQL
+                    mybatis                     :'3.5.7',//MyBatis
+                    mybatisSpringBoot           :'2.2.0'
 ]
 ext.libraries = [
         // SpringBoot 核心依赖库
@@ -57,5 +57,8 @@ ext.libraries = [
         //MySQL
         'mysql'                             :"mysql:mysql-connector-java:${versions.mysql}",
         //SpringJDBC
-        'SpringJDBC'                        :"org.springframework:spring-jdbc:${versions.springJDBC}"
+        'SpringJDBC'                        :"org.springframework:spring-jdbc:${versions.springJDBC}",
+        //整个MyBatis
+        'mybatis'                           :"org.mybatis:mybatis:${versions.mybatis}",
+        'mybatis-spring-boot-starter'       :"org.mybatis.spring.boot:mybatis-spring-boot-starter:${versions.mybatisSpringBoot}"
 ]

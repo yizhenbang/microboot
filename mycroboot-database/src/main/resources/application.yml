@@ -23,3 +23,7 @@ spring:
           log-slow-sql: true #记录慢SQL
           slow-sql-Millis: 1 #超过一毫秒为慢SQL
           merge-sql: true #统计相同到SQL命令
+mybatis:
+  config-location: classpath:META-INF/mybatis/mybatis-config.xml
+  mapper-locations: classpath:META-INF/mybatis/mapper/**/*.xml # 所有的mapper映射文件
+  type-aliases-package: com.yzb.database.vo
