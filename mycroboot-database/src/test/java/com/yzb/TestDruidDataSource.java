@@ -28,11 +28,16 @@ import java.sql.SQLException;
 public class TestDruidDataSource {
 
     @Autowired
-    @Qualifier("yzbDriDruidDataSource")
-    private DataSource dataSource;
+    @Qualifier("druidYzbDataSource")
+    private DruidDataSource druidYzbDataSource;
+
+    @Autowired
+    @Qualifier("druidtestDataSource")
+    private DruidDataSource druidtestDataSource;
 
     @Test
     void getConn() throws SQLException {
-        System.out.println(dataSource.getConnection());
+        System.out.println(druidYzbDataSource.getConnection());
+        System.out.println(druidtestDataSource.getConnection());
     }
 }

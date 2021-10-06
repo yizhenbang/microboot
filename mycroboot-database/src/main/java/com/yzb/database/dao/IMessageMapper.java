@@ -2,7 +2,6 @@ package com.yzb.database.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yzb.database.vo.StudentVO;
-import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -15,7 +14,7 @@ import java.util.List;
  * @version 1.0
  * @since JDK 1.8
  */
-@Mapper
+//@Mapper
 public interface IMessageMapper extends BaseMapper<StudentVO> {
     List<StudentVO> list();
 }

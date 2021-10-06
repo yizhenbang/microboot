@@ -25,7 +25,7 @@ import java.util.Map;
  * @version 1.0
  * @since JDK 1.8
  */
-@Configuration
+//@Configuration
 public class TransactionConfiguration { //事物
     private final String TX_POINTCUT_EXPRESSION = "execution(* com.yzb.database.service.*.*(..))";//切点表达式
     private final int TX_TIMEOUT = 5;//事物超时时间

@@ -24,7 +24,7 @@ import javax.servlet.ServletRegistration;
  * @version 1.0
  * @since JDK 1.8
  */
-@Configuration
+//@Configuration
 public class DruidMonitorConfig {
 
     @Bean("statViewServletServletRegistration")
