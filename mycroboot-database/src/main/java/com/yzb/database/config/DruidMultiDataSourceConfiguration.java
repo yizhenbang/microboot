@@ -25,7 +25,7 @@ public class DruidMultiDataSourceConfiguration {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean("druidtestDataSource")
+    @Bean("druidTestDataSource")
     @ConfigurationProperties(prefix = "spring.datasource.yzhenb")
     public DataSource testDataSource() {
         return DruidDataSourceBuilder.create().build();

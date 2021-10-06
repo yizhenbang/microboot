@@ -32,12 +32,12 @@ public class TestDruidDataSource {
     private DruidDataSource druidYzbDataSource;
 
     @Autowired
-    @Qualifier("druidtestDataSource")
-    private DruidDataSource druidtestDataSource;
+    @Qualifier("druidTestDataSource")
+    private DruidDataSource druidTestDataSource;
 
     @Test
     void getConn() throws SQLException {
         System.out.println(druidYzbDataSource.getConnection());
-        System.out.println(druidtestDataSource.getConnection());
+        System.out.println(druidTestDataSource.getConnection());
     }
 }
