@@ -17,11 +17,11 @@ import java.util.List;
  * @version 1.0
  * @since JDK 1.8
  */
-//@RestController
+@RestController
 public class EchoAction {
 
 
-    //@Autowired
+    @Autowired
     private IMessage iMessage;
 
     @GetMapping("/all")

@@ -18,7 +18,7 @@ import java.util.List;
  * @version 1.0
  * @since JDK 1.8
  */
-//@Service
+@Service
 public class MessageImpl extends ServiceImpl<IMessageMapper, StudentVO> implements IMessage {
 
     @Autowired

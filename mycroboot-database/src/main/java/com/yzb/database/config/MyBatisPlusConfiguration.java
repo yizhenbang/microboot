@@ -1,5 +1,6 @@
 package com.yzb.database.config;
 
+import com.baomidou.mybatisplus.autoconfigure.SpringBootVFS;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import javax.sql.DataSource;
  * @version 1.0
  * @since JDK 1.8
  */
-//@Configuration
+@Configuration
 public class MyBatisPlusConfiguration {
 
     @Autowired
@@ -40,7 +41,7 @@ public class MyBatisPlusConfiguration {
         GlobalConfig.DbConfig dbConfig = new GlobalConfig.DbConfig();//创建DbConfig
 
         mybatisSqlSessionFactoryBean.setDataSource(dataSource);//设置数据源
-        // mybatisSqlSessionFactoryBean.setVfs(SpringBootVFS.class);//设置包扫描到类型
+        mybatisSqlSessionFactoryBean.setVfs(SpringBootVFS.class);//设置包扫描到类型
         mybatisSqlSessionFactoryBean.setConfigLocation(configLocation);//设置Config路径
         mybatisSqlSessionFactoryBean.setMapperLocations(this.resourcePatternResolver.getResources(mapperLocation));//设置资源文件路径
         mybatisSqlSessionFactoryBean.setTypeAliasesPackage(typeAliasesPackage);//设置别名包

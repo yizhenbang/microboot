@@ -23,42 +23,42 @@ import java.util.List;
  * @version 1.0
  * @since JDK 1.8
  */
-//@Configuration
+// @Configuration
 public class DruidDataSourceConfiguration {
 
     @Bean("yzbDriDruidDataSource")
     public DruidDataSource getYzbDriDruidDataSource(
-            @Value("${spring.mybatisReview.datasource.driver-class-name}")
+            @Value("${spring.datasource.driver-class-name}")
                     String driverClassName, // 数据库驱动程序
-            @Value("${spring.mybatisReview.datasource.url}")
+            @Value("${spring.datasource.url}")
                     String url, // 数据库连接地址
-            @Value("${spring.mybatisReview.datasource.username}")
+            @Value("${spring.datasource.username}")
                     String username, // 数据库的用户名
-            @Value("${spring.mybatisReview.datasource.password}")
+            @Value("${spring.datasource.password}")
                     String password, // 数据库的用户名
-            @Value("${spring.mybatisReview.datasource.druid.initial-size}")
+            @Value("${spring.datasource.druid.initial-size}")
                     int initialSize, // 初始化连接数
-            @Value("${spring.mybatisReview.datasource.druid.min-idle}")
+            @Value("${spring.datasource.druid.min-idle}")
                     int minIdle, // 最小维持连接数
-            @Value("${spring.mybatisReview.datasource.druid.max-active}")
+            @Value("${spring.datasource.druid.max-active}")
                     int maxActive, // 最大连接数
-            @Value("${spring.mybatisReview.datasource.druid.max-wait}")
+            @Value("${spring.datasource.druid.max-wait}")
                     long maxWait, // 最长等待时间
-            @Value("${spring.mybatisReview.datasource.druid.time-between-eviction-runs-millis}")
+            @Value("${spring.datasource.druid.time-between-eviction-runs-millis}")
                     long timeBetweenEvictionRunsMillis, // 关闭空闲连接间隔
-            @Value("${spring.mybatisReview.datasource.druid.min-evictable-idle-time-millis}")
+            @Value("${spring.datasource.druid.min-evictable-idle-time-millis}")
                     long minEvictableIdleTimeMillis, // 最小存活时间
-            @Value("${spring.mybatisReview.datasource.druid.validation-query}")
+            @Value("${spring.datasource.druid.validation-query}")
                     String validationQuery, // 验证查询
-            @Value("${spring.mybatisReview.datasource.druid.test-while-idle}")
+            @Value("${spring.datasource.druid.test-while-idle}")
                     boolean testWhileIdle, // 测试空闲连接是否可用
-            @Value("${spring.mybatisReview.datasource.druid.test-on-borrow}")
+            @Value("${spring.datasource.druid.test-on-borrow}")
                     boolean testOnBorrow, // 测试后返回连接
-            @Value("${spring.mybatisReview.datasource.druid.test-on-return}")
-                    boolean testOnReturn, // 测试后归还
-            @Autowired StatFilter statFilter,//注入SQL监控
-            @Autowired WallFilter wallFilter,//注入SQL防火墙
-            @Autowired Slf4jLogFilter slf4jLogFilter
+            @Value("${spring.datasource.druid.test-on-return}")
+                    boolean testOnReturn // 测试后归还
+            // @Autowired StatFilter statFilter,//注入SQL监控
+            // @Autowired WallFilter wallFilter,//注入SQL防火墙
+            // @Autowired Slf4jLogFilter slf4jLogFilter
     ) {
         DruidDataSource dataSource = new DruidDataSource();
         dataSource.setDriverClassName(driverClassName); // 数据库驱动程序
@@ -77,9 +77,9 @@ public class DruidDataSourceConfiguration {
         dataSource.setTestOnReturn(testOnReturn); // 归还时检测
 
         List<Filter> filters = new ArrayList<>();//设置所有可能存在的监控项
-        filters.add(statFilter);
-        filters.add(wallFilter);//将SQL防火墙加入
-        filters.add(slf4jLogFilter);//将日志进行注入
+        // filters.add(statFilter);
+        // filters.add(wallFilter);//将SQL防火墙加入
+        // filters.add(slf4jLogFilter);//将日志进行注入
         dataSource.setProxyFilters(filters);
 
         return dataSource;

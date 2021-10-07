@@ -161,7 +161,7 @@ project('mycroboot-database') {
         compile('org.springframework.boot:spring-boot-starter-aop')
         compile(libraries.'mybatis')
 //        compile(libraries.'mybatis-spring-boot-starter')
-//        compile(libraries.'mybatis-plus-boot-starter')
+        compile(libraries.'mybatis-plus-boot-starter')
         compile(libraries.'mybatisPlus')
     }
 }
