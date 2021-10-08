@@ -30,14 +30,14 @@ public class DynamicDataSourceConfiguration {
 
     @Bean("dataSource")
     @Primary //注入DataSource的时候优先此配置
-    @DependsOn({"druidYzbDataSource", "druidTestDataSource"})
+    @DependsOn({"druidYzbDataSource", "druidTESTDataSource"})
     public DataSource setDataSource(
             @Autowired DataSource druidYzbDataSource,
-            @Autowired DataSource druidTestDataSource
+            @Autowired DataSource druidTESTDataSource
     ) {
         Map<Object, Object> map = new HashMap(5);
         map.put(DynamicDataSource.DataSourceNames.YZB_DATASOURCE, druidYzbDataSource);
-        map.put(DynamicDataSource.DataSourceNames.TEST_DATASOURCE, druidTestDataSource);
+        map.put(DynamicDataSource.DataSourceNames.TEST_DATASOURCE, druidTESTDataSource);
         return new DynamicDataSource(druidYzbDataSource, map);//将 druidYzbDataSource 设置为默认数据源
     }
 

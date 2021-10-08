@@ -1,5 +1,6 @@
 package com.yzb.database;
 
+import com.alibaba.druid.pool.xa.DruidXADataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 

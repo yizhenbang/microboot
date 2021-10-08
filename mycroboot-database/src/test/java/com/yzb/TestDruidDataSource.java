@@ -7,6 +7,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.core.env.Environment;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.context.web.WebAppConfiguration;
 
@@ -29,15 +30,19 @@ public class TestDruidDataSource {
 
     @Autowired
     @Qualifier("druidYzbDataSource")
-    private DruidDataSource druidYzbDataSource;
+    private DataSource druidYzbDataSource;
 
     @Autowired
-    @Qualifier("druidTestDataSource")
-    private DruidDataSource druidTestDataSource;
+    @Qualifier("druidTESTDataSource")
+    private DataSource druidTESTDataSource;
+
+    @Autowired
+    private Environment environment;
 
     @Test
     void getConn() throws SQLException {
         System.out.println(druidYzbDataSource.getConnection());
-        System.out.println(druidTestDataSource.getConnection());
+        System.out.println(druidTESTDataSource.getConnection());
+        System.out.println(environment);
     }
 }

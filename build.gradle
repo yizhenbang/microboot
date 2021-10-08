@@ -163,5 +163,6 @@ project('mycroboot-database') {
 //        compile(libraries.'mybatis-spring-boot-starter')
         compile(libraries.'mybatis-plus-boot-starter')
         compile(libraries.'mybatisPlus')
+        compile('org.springframework.boot:spring-boot-starter-jta-atomikos')
     }
 }

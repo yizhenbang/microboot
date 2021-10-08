@@ -16,17 +16,17 @@ import javax.sql.DataSource;
  * @version 1.0
  * @since JDK 1.8
  */
-@Configuration
+// @Configuration
 public class DruidMultiDataSourceConfiguration {
 
-    @Bean("druidYzbDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.yzb")
+    // @Bean("druidYzbDataSource")
+    // @ConfigurationProperties(prefix = "spring.datasource.yzb")
     public DataSource yzbDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
 
-    @Bean("druidTestDataSource")
-    @ConfigurationProperties(prefix = "spring.datasource.yzhenb")
+    // @Bean("druidTestDataSource")
+    // @ConfigurationProperties(prefix = "spring.datasource.yzhenb")
     public DataSource testDataSource() {
         return DruidDataSourceBuilder.create().build();
     }
