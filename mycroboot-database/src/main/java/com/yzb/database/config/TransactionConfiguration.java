@@ -1,5 +1,6 @@
 package com.yzb.database.config;
 
+import org.aspectj.lang.annotation.Aspect;
 import org.springframework.aop.Advisor;
 import org.springframework.aop.aspectj.AspectJExpressionPointcut;
 import org.springframework.aop.support.DefaultPointcutAdvisor;
@@ -25,10 +26,11 @@ import java.util.Map;
  * @version 1.0
  * @since JDK 1.8
  */
-//@Configuration
+@Configuration
+@Aspect
 public class TransactionConfiguration { //事物
     private final String TX_POINTCUT_EXPRESSION = "execution(* com.yzb.database.service.*.*(..))";//切点表达式
-    private final int TX_TIMEOUT = 5;//事物超时时间
+    private final int TX_TIMEOUT = 5000;//事物超时时间
 
     @Autowired
     private TransactionManager transactionManager;//事物管理器
@@ -48,6 +50,7 @@ public class TransactionConfiguration { //事物
         //映射所有可能的方法开启事务
         Map<String, TransactionAttribute> attributeMap = new HashMap<>();
         attributeMap.put("save*", requireAttribute);
+        attributeMap.put("add*", requireAttribute);
         attributeMap.put("insert*", requireAttribute);
         attributeMap.put("delete*", requireAttribute);
         attributeMap.put("update*", requireAttribute);
@@ -63,11 +66,11 @@ public class TransactionConfiguration { //事物
     }
 
     @Bean("txAdvisor")
-    public Advisor advisor(@Autowired TransactionInterceptor txAdvice) {
+    public Advisor advisor() {
         AspectJExpressionPointcut aspectJExpressionPointcut = new AspectJExpressionPointcut();
         aspectJExpressionPointcut.setExpression(TX_POINTCUT_EXPRESSION);
 
-        return new DefaultPointcutAdvisor(aspectJExpressionPointcut, txAdvice);
+        return new DefaultPointcutAdvisor(aspectJExpressionPointcut, advice());
     }
 
 }

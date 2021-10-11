@@ -22,14 +22,14 @@ import org.springframework.stereotype.Component;
 public class DynamicDataSourceAspect {
 
     //访问yzb包下的数据路径的时候将数据源切换成yzb
-    @Before("(execution(* com.yzb.database.action.yzb.*.*(..)))")
+    @Before("(execution(* com.yzb.database.dao.yzb.*.*(..)))")
     public void setYZBDataSource() {
         DynamicDataSource.setDataSource(DynamicDataSource.DataSourceNames.YZB_DATASOURCE);
         log.info("【切换数据源】{}", DynamicDataSource.DataSourceNames.YZB_DATASOURCE);
     }
 
     //访问test包下的数据路径的时候将数据源切换成test
-    @Before("(execution(* com.yzb.database.action.test.*.*(..)))")
+    @Before("(execution(* com.yzb.database.dao.yzhenb.*.*(..)))")
     public void setTESTDataSource() {
         DynamicDataSource.setDataSource(DynamicDataSource.DataSourceNames.TEST_DATASOURCE);
         log.info("【切换数据源】{}", DynamicDataSource.DataSourceNames.TEST_DATASOURCE);

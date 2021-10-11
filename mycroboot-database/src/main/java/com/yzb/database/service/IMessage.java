@@ -1,9 +1,10 @@
 package com.yzb.database.service;
 
-import com.baomidou.mybatisplus.extension.service.IService;
-import com.yzb.database.vo.StudentVO;
+import com.yzb.database.vo.Haha;
+import com.yzb.database.vo.Teacher;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * ClassName: IMessage
@@ -14,6 +15,6 @@ import java.util.List;
  * @version 1.0
  * @since JDK 1.8
  */
-public interface IMessage extends IService<StudentVO> {
-    List<StudentVO> mylist();
+public interface IMessage {
+    void addAll(Map<Teacher, List<Haha>> map);
 }

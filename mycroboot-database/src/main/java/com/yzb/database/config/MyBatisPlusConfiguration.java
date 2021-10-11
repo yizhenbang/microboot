@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.support.PathMatchingResourcePatternResolver;
 import org.springframework.core.io.support.ResourcePatternResolver;
 
 import javax.sql.DataSource;
@@ -24,8 +25,7 @@ import javax.sql.DataSource;
 @Configuration
 public class MyBatisPlusConfiguration {
 
-    @Autowired
-    private ResourcePatternResolver resourcePatternResolver;
+    private ResourcePatternResolver resourcePatternResolver = new PathMatchingResourcePatternResolver();
 
     @Bean("mybatisSqlSessionFactoryBean")
     public MybatisSqlSessionFactoryBean getMybatisSqlSessionFactoryBean(
@@ -34,7 +34,8 @@ public class MyBatisPlusConfiguration {
             @Value("${mybatis-plus.mapper-locations}") String mapperLocation,
             @Value("${mybatis-plus.type-aliases-package}") String typeAliasesPackage,
             @Value("${mybatis-plus.global-config.db-config.logic-delete-value}") String logicDeleteValue,
-            @Value("${mybatis-plus.global-config.db-config.logic-not-delete-value}") String logicNotDeleteValue
+            @Value("${mybatis-plus.global-config.db-config.logic-not-delete-value}") String logicNotDeleteValue,
+            @Value("${mybatis-plus.type-enums-package}") String typeEnumsPackage
     ) throws Exception {
         MybatisSqlSessionFactoryBean mybatisSqlSessionFactoryBean = new MybatisSqlSessionFactoryBean();//创建SqlSessionFactoryBean
         GlobalConfig globalConfig = new GlobalConfig();//创建GlobalConfig
@@ -45,7 +46,8 @@ public class MyBatisPlusConfiguration {
         mybatisSqlSessionFactoryBean.setConfigLocation(configLocation);//设置Config路径
         mybatisSqlSessionFactoryBean.setMapperLocations(this.resourcePatternResolver.getResources(mapperLocation));//设置资源文件路径
         mybatisSqlSessionFactoryBean.setTypeAliasesPackage(typeAliasesPackage);//设置别名包
-
+        mybatisSqlSessionFactoryBean.setTypeEnumsPackage(typeEnumsPackage);//枚举扫描包
+        mybatisSqlSessionFactoryBean.setTransactionFactory(new MultiDataSourceTransactionFactory());//设置事物工厂
         dbConfig.setLogicDeleteValue(logicDeleteValue);//设置逻辑删除值
         dbConfig.setLogicNotDeleteValue(logicNotDeleteValue);//设置逻辑未删除值
 

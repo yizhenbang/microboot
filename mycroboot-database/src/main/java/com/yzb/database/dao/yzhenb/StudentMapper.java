@@ -1,21 +1,18 @@
-package com.yzb.database.dao;
+package com.yzb.database.dao.yzhenb;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yzb.database.vo.Haha;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
-
 /**
- * ClassName: IMessageMapper
+ * ClassName: StudentMapper
  * Description:
- * date: 2021/10/4 21:45
+ * date: 2021/10/10 9:45
  *
  * @author ZhenBang-Yi
  * @version 1.0
  * @since JDK 1.8
  */
 @Mapper
-public interface IMessageMapper extends BaseMapper<Haha> {
-    List<Haha> list();
+public interface StudentMapper extends BaseMapper<Haha> {
 }

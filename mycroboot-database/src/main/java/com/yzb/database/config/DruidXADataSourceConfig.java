@@ -31,9 +31,9 @@ public class DruidXADataSourceConfig {
     @ConfigurationProperties(prefix = "spring.datasource.yzb")
     public DataSource getYzbDruidXADataSource(@Autowired Environment environment) {
         AtomikosDataSourceBean atomikosDataSourceBean = new AtomikosDataSourceBean();
-        atomikosDataSourceBean.setXaProperties(build(environment, YZB_DATABASE_DRUID_PREFIX, DRUID_POOL_PREFIX));//相关属性
         atomikosDataSourceBean.setUniqueResourceName("yzb");//设置资源名字
         atomikosDataSourceBean.setXaDataSourceClassName(environment.getProperty(YZB_DATABASE_DRUID_PREFIX + "type"));//设置数据源类型名字
+        atomikosDataSourceBean.setXaProperties(build(environment, YZB_DATABASE_DRUID_PREFIX, DRUID_POOL_PREFIX));//相关属性
         return atomikosDataSourceBean;
     }
 
