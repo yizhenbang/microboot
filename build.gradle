@@ -175,5 +175,6 @@ project('microboot-oauth2') {
         implementation('org.springframework.boot:spring-boot-starter-security')
         implementation(libraries.'spring-boot-starter-data-redis')
         implementation(libraries.'spring-security-oauth2-autoconfigure')
+        implementation(libraries.'commons-pool2')//lettuce需要
     }
 }
