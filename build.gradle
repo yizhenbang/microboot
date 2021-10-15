@@ -166,3 +166,14 @@ project('mycroboot-database') {
         compile('org.springframework.boot:spring-boot-starter-jta-atomikos')
     }
 }
+project('microboot-oauth2') {
+    dependencies {
+        compile(project(':microboot-common'))
+        compile(libraries.'druidStarter')
+        compile(libraries.'mysql')
+        compile(libraries.'mybatis-plus-boot-starter')
+        implementation('org.springframework.boot:spring-boot-starter-security')
+        implementation(libraries.'spring-boot-starter-data-redis')
+        implementation(libraries.'spring-security-oauth2-autoconfigure')
+    }
+}

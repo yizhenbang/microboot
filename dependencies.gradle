@@ -21,6 +21,7 @@ ext.versions = [    // 定义所有要使用的版本号
                     mybatisSpringBoot           :'2.2.0',
                     mybatisPlus                 :'3.4.3',
                     mybatisPlusStarter          :'3.4.3',
+                    SecurityOauth2              :'2.5.3',//Oauth2
 ]
 ext.libraries = [
         // SpringBoot 核心依赖库
@@ -65,5 +66,7 @@ ext.libraries = [
         'mybatis-spring-boot-starter'       :"org.mybatis.spring.boot:mybatis-spring-boot-starter:${versions.mybatisSpringBoot}",
         //MyBatisPlus
         'mybatis-plus-boot-starter'         :"com.baomidou:mybatis-plus-boot-starter:${versions.mybatisPlusStarter}",
-        'mybatisPlus'                       :"com.baomidou:mybatis-plus:${versions.mybatisPlus}"
+        'mybatisPlus'                       :"com.baomidou:mybatis-plus:${versions.mybatisPlus}",
+        //Oauth2
+        'spring-security-oauth2-autoconfigure':"org.springframework.security.oauth.boot:spring-security-oauth2-autoconfigure:${versions.SecurityOauth2}"
 ]
