@@ -10,4 +10,5 @@ include 'microboot-WebFlux'
 include 'microboot-config-starter'
 include 'mycroboot-database'
 include 'microboot-oauth2'
+include 'mycroboot-jwt'
 

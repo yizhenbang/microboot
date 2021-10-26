@@ -178,3 +178,10 @@ project('microboot-oauth2') {
         implementation(libraries.'commons-pool2')//lettuce需要
     }
 }
+project('mycroboot-jwt'){
+    dependencies {
+        implementation(project(':microboot-common'))
+        implementation(libraries.'jjwt')
+        implementation(libraries.'jaxb-api')
+    }
+}
