@@ -185,3 +185,9 @@ project('mycroboot-jwt'){
         implementation(libraries.'jaxb-api')
     }
 }
+project(':microboot-Review-test'){
+    dependencies {
+        implementation('org.springframework.boot:spring-boot-starter-web')
+        implementation(libraries.'fastjson')
+    }
+}

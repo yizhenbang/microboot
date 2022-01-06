@@ -1,5 +1,6 @@
 package com.yzb.database.dao.yzhenb;
 
+import com.baomidou.mybatisplus.core.conditions.AbstractWrapper;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.yzb.database.vo.Haha;
 import org.apache.ibatis.annotations.Mapper;

@@ -6,4 +6,3 @@ logging:
 spring:
   profiles:
     active: env # 当前的开发环境为env
-
